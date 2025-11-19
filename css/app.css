@@ -10,7 +10,7 @@
     color: #F3F3F3 !important;
 }
 
-/* Asegura que el body tambiÈn cambia */
+/* Asegura que el body tambi√©n cambia */
 body.dark-root, html.dark-root {
     background-color: #121212 !important;
     color: #F3F3F3 !important;
@@ -36,7 +36,7 @@ body.dark-root, html.dark-root {
 .login-card {
     width: 100%;
     max-width: 380px;
-    padding: 2rem 1.5rem; /* Ajuste para mÛviles */
+    padding: 2rem 1.5rem; /* Ajuste para m√≥viles */
     transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
@@ -50,7 +50,7 @@ body.dark-root, html.dark-root {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 2rem; /* m·s espacio alrededor */
+    padding: 2rem; /* m√°s espacio alrededor */
     background: linear-gradient(135deg, #fce4ec 0%, #e3f2fd 100%);
 }
 
@@ -130,11 +130,23 @@ body.dark-root, html.dark-root {
 }
 
 
-
-
 html, body {
+    height: 100%;
+    margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.mud-layout {
+    height: 100%;
+}
+
+.mud-main-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: inherit !important;
+}
+
 
 h1:focus {
     outline: none;
