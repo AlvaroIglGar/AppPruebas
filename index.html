@@ -16,6 +16,26 @@
     <link href="AppWebAssembly.styles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
 
+    <!-- Scripts de utilidad -->
+    <script>
+        // Función de cambio de tema (debe estar antes de blazor.webassembly.js)
+        window.changeThemeClass = function (isDark) {
+            if (isDark) {
+                document.body.classList.add("dark-root");
+                document.documentElement.classList.add("dark-root");
+                document.body.classList.remove("light-root");
+                document.documentElement.classList.remove("light-root");
+            } else {
+                document.body.classList.add("light-root");
+                document.documentElement.classList.add("light-root");
+                document.body.classList.remove("dark-root");
+                document.documentElement.classList.remove("dark-root");
+            }
+        };
+
+        // Función para obtener ancho de ventana
+        window.blazorGetWidth = () => window.innerWidth;
+    </script>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -36,27 +56,10 @@
         <span class="dismiss">🗙</span>
     </div>
 
-    <!-- Scripts con defer para no bloquear la carga -->
-    <script src="_framework/blazor.webassembly.js" defer></script>
+    <!-- Script principal de Blazor -->
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <!-- Script de MudBlazor (puede ir con defer) -->
     <script src="_content/MudBlazor/MudBlazor.min.js?v=1" defer></script>
-
-    <script>
-        window.changeThemeClass = function (isDark) {
-            if (isDark) {
-                document.body.classList.add("dark-root");
-                document.documentElement.classList.add("dark-root");
-                document.body.classList.remove("light-root");
-                document.documentElement.classList.remove("light-root");
-            } else {
-                document.body.classList.add("light-root");
-                document.documentElement.classList.add("light-root");
-                document.body.classList.remove("dark-root");
-                document.documentElement.classList.remove("dark-root");
-            }
-        };
-
-        window.blazorGetWidth = () => window.innerWidth;
-    </script>
-
 </body>
 </html>
