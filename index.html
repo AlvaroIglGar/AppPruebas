@@ -16,7 +16,6 @@
     <link href="AppWebAssembly.styles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
 
-  
 </head>
 <body>
     <!-- Loading Screen -->
@@ -41,9 +40,8 @@
     <script src="_framework/blazor.webassembly.js" defer></script>
     <script src="_content/MudBlazor/MudBlazor.min.js?v=1" defer></script>
 
-     <script>
+    <script>
         window.changeThemeClass = function (isDark) {
-            console.log(window.innerWidth);
             if (isDark) {
                 document.body.classList.add("dark-root");
                 document.documentElement.classList.add("dark-root");
@@ -56,10 +54,9 @@
                 document.documentElement.classList.remove("dark-root");
             }
         };
+
+        window.blazorGetWidth = () => window.innerWidth;
     </script>
 
- <script>
-        window.blazorGetWidth = () => window.innerWidth;        
-    </script>
 </body>
 </html>
