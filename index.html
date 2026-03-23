@@ -4,23 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AppWebAssembly</title>
-    <!-- Cambiar base href según tu repo en GitHub Pages -->
     <base href="/AppPruebas/" />
 
-    <!-- Fuente recomendada por MudBlazor -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-
- <!-- Font Awesome desde CDN (sin integrity para evitar bloqueos en GitHub Pages) -->
     <link href="lib/fontawesome/css/all.css" rel="stylesheet" />
-    <!-- Estilos de MudBlazor -->
     <link href="_content/MudBlazor/MudBlazor.min.css?v=1" rel="stylesheet" />
     <link rel="stylesheet" href="css/app.css" />
     <link href="AppWebAssembly.styles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
 
-    <!-- Scripts de utilidad -->
     <script>
-        // Función de cambio de tema (debe estar antes de blazor.webassembly.js)
         window.changeThemeClass = function (isDark) {
             if (isDark) {
                 document.body.classList.add("dark-root");
@@ -35,12 +28,33 @@
             }
         };
 
-        // Función para obtener ancho de ventana
         window.blazorGetWidth = () => window.innerWidth;
+    </script>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var path = params.get('p');
+            var query = params.get('q');
+
+            if (path !== null) {
+                var base = '/AppPruebas';
+                var newUrl = base + path;
+
+                if (query) {
+                    newUrl += '?' + query;
+                }
+
+                if (window.location.hash) {
+                    newUrl += window.location.hash;
+                }
+
+                window.history.replaceState(null, '', newUrl);
+            }
+        })();
     </script>
 </head>
 <body>
-    <!-- Loading Screen -->
     <div id="app">
         <div class="loading-container">
             <svg class="loading-progress">
@@ -51,17 +65,13 @@
         </div>
     </div>
 
-    <!-- Error UI de Blazor -->
     <div id="blazor-error-ui">
         Ocurrió un error inesperado.
         <a href="." class="reload">Recargar</a>
         <span class="dismiss">🗙</span>
     </div>
 
-    <!-- Script principal de Blazor -->
     <script src="_framework/blazor.webassembly.js"></script>
-
-    <!-- Script de MudBlazor (puede ir con defer) -->
     <script src="_content/MudBlazor/MudBlazor.min.js?v=1" defer></script>
 </body>
 </html>
